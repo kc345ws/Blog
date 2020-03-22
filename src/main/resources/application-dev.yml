@@ -1,0 +1,17 @@
+# 开发环境
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/blog?serverTimezone=UTC
+    username: root
+    password: qhw739t
+
+server:
+  port: 8080
+#mybatis:
+#  config-location: classpath:config/mybatis-config.xml
+#  mapper-locations: classpath:mapper/*.xml
+logging:
+  level:
+    root: info
+    com.kc345ws: debug
