@@ -43,7 +43,6 @@ public class TypeController {
             b.setUser(adminUserService.findUserById(b.getUserId()));
         }
         model.addAttribute("pages", allBlog);
-
         List<Type> types = (initialService.findAllType( initialService.findPortionType() ));
         model.addAttribute("types", types);
 
