@@ -32,16 +32,16 @@ public class AdminBlogController {
 
     @RequestMapping("/blogs")
     public String blog(){
-        return "admin/blogs";
+        return "redirect:/admin/input";
     }
 
     @GetMapping("/index")//访问首页，博客分页
     public String backIndex(@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum, Model model) {
         PageHelper.startPage(pageNum, 8);
         List<Blog> allBlog = adminIndexService.findAllBlog();
-//        for (Blog b : allBlog) {
-//            b.setType(adminTypeService.findTypeById(b.getTypeId()));
-//        }
+        for (Blog b : allBlog) {
+            b.setType(adminTypeService.findTypeById(b.getTypeId()));
+        }
         PageInfo<Blog> lists = new PageInfo<>(allBlog);
         model.addAttribute("types", adminTypeService.findAllType());
         model.addAttribute("pages", lists);
