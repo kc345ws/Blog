@@ -19,7 +19,7 @@ public class LogAspect {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());//日志记录器
     //任何访问类型的在com.kc345ws.blog.controller下任何类的任何方法使用切入点
     // (对连接点进行了过滤，在部分连接点切入)
-    @Pointcut("execution(* com.kc345ws.blog.controller.*.*(..))")//切点
+    @Pointcut("execution(* com.kc345ws.blog.web.admin.*.*(..))")//切点
     public void log(){}
 
     @Before("log()")//通知，来增强功能

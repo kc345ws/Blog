@@ -51,13 +51,13 @@
     <div class="m-container m-padded-tb-big">
         <div class="ui container">
 
-            <!--/*/
+
         <div class="ui success message" th:unless="${#strings.isEmpty(message)}">
           <i class="close icon"></i>
           <div class="header">提示：</div>
           <p th:text="${message}">恭喜，操作成功！</p>
         </div>
-        /*/-->
+
 
             <form action="#" th:action="@{/admin/search}" method="post" class="ui secondary segment form">
                 <div class="inline fields">
@@ -70,7 +70,7 @@
                             <i class="dropdown icon"></i>
                             <div class="default text">分类</div>
                             <div class="menu">
-                                <!--<div th:each="type : ${types}" class="item" data-value="1" th:data-value="${type.id}" th:text="${type.name}" >错误日志</div>-->
+                                <div th:each="type : ${types}" class="item" data-value="1" th:data-value="${type.id}" th:text="${type.name}" >错误日志</div>
                             </div>
                         </div>
                     </div>
@@ -101,28 +101,28 @@
                 </thead>
 
                 <tbody>
-                    <!--<tr th:each="blog:${pages.list}">-->
-                        <!--<td th:text="${blog.id}">1</td>-->
-                        <!--<td th:text="${blog.title}">好男人</td>-->
-                        <!--<td th:text="${blog.type.name}">认知升级</td>-->
-                        <!--<td th:text="${blog.recommend==true?'是':'否'}">是</td>-->
-                        <!--<td th:text="${#temporals.format(blog.updateTime, 'yyyy-MM-dd HH:mm')}">2020-01-01 01:11</td>-->
-                        <!--<td>-->
-                            <!--<a href="#" th:href="@{/admin/blogs/{id}/input(id=${blog.id})}" class="ui mini teal basic button">编辑</a>-->
-                            <!--<a href="#" th:href="@{/admin/blogs/{id}/delete(id=${blog.id})}" onclick="return confirm('您确定要删除吗？')" class="ui mini red basic button">删除</a>-->
-                        <!--</td>-->
-                    <!--</tr>-->
+                    <tr th:each="blog:${pages.list}">
+                        <td th:text="${blog.id}">1</td>
+                        <td th:text="${blog.title}">好男人</td>
+                        <td th:text="${blog.type.name}">认知升级</td>
+                        <td th:text="${blog.recommend==true?'是':'否'}">是</td>
+                        <td th:text="${#temporals.format(blog.updateTime, 'yyyy-MM-dd HH:mm')}">2020-01-01 01:11</td>
+                        <td>
+                            <a href="#" th:href="@{/admin/blogs/{id}/input(id=${blog.id})}" class="ui mini teal basic button">编辑</a>
+                            <a href="#" th:href="@{/admin/blogs/{id}/delete(id=${blog.id})}" onclick="return confirm('您确定要删除吗？')" class="ui mini red basic button">删除</a>
+                        </td>
+                    </tr>
                 </tbody>
 
                 <tfoot>
                     <tr>
                         <th colspan="6">
                             <div class="ui pagination menu">
-                                <!--<a th:href="@{/admin/index(pageNum=${pages.hasPreviousPage}?${pages.prePage}:1)}" class="item">上一页</a>-->
-                                <!--<a th:href="@{/admin/index(pageNum=${pages.hasNextPage}?${pages.nextPage}:${pages.pages})}" class="item">下一页</a>-->
+                                <a th:href="@{/admin/index(pageNum=${pages.hasPreviousPage}?${pages.prePage}:1)}" class="item">上一页</a>
+                                <a th:href="@{/admin/index(pageNum=${pages.hasNextPage}?${pages.nextPage}:${pages.pages})}" class="item">下一页</a>
                             </div>
                             <div class="ui mini segment m-inline-block">
-                                <!--<p>当前第<span th:text="${pages.pageNum}"></span>页，总<span th:text="${pages.pages}"></span>页，共<span th:text="${pages.total}"></span>条记录</p>-->
+                                <p>当前第<span th:text="${pages.pageNum}"></span>页，总<span th:text="${pages.pages}"></span>页，共<span th:text="${pages.total}"></span>条记录</p>
                             </div>
                         </th>
                     </tr>
@@ -143,7 +143,8 @@
                 <div class="three wide column">
                     <div class="ui inverted link list">
                         <div class="item">
-                            <img src="../../static/images/shunjian.jpg" th:src="@{/images/shunjian.jpg}" class="ui rounded image" alt="" style="width: 110px" />
+                            <img th:src="@{/images/shunjian.jpg }"class="ui rounded image" alt="" style="width: 110px">
+                            <!--<img src="../../static/images/shunjian.jpg" class="ui rounded image" alt="" style="width: 110px" />-->
                         </div>
                     </div>
                 </div>
@@ -160,9 +161,9 @@
                 <div class="three wide column">
                     <h4 class="ui inverted header m-opacity-mino">联系我~</h4>
                     <div class="ui inverted link list">
-                        <a href="#" class="item">QQ：291480766</a>
-                        <a href="#" class="item">WeChat： aas13926570711</a>
-                        <a href="#" class="item">Email：re_dlzs@sina.com</a>
+                        <a href="#" class="item">QQ：598043446</a>
+                        <a href="#" class="item">WeChat： 18514342600</a>
+                        <a href="#" class="item">Email：598043446@qq.com</a>
                     </div>
                 </div>
 
@@ -174,7 +175,7 @@
             </div>
 
             <div class="ui inverted section divider"></div>
-            <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright © imggragon All Rights Reserved. </p>
+            <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright © kc345ws All Rights Reserved. </p>
         </div>
     </footer>
 

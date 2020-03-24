@@ -3,6 +3,7 @@ package com.kc345ws.blog.pojo;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -24,14 +25,16 @@ public class Blog implements Serializable {
     private Boolean opencomment;    //是否开启评论功能
     private Boolean recommend;  //是否设置为推荐文章
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime createTime;   //创建博客的时间
+    private LocalDateTime createTime;   //创建博客的时间 必须与数据库名字一样
+    //private LocalDateTime createTime;   //创建博客的时间
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime updateTime;   //修改博客的时间
+    //private LocalDateTime updateTime;   //修改博客的时间
     private String description;     //博客基本描述
     private Long pageViews;     //阅读量
 
     private Long userId;    //设置用户索引
-    private long typeId;    //设置分类索引
+    private Long typeId;    //设置分类索引
     private String tagsName;  //设置多个标签索引
 
     private Type type;

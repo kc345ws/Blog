@@ -1,21 +1,32 @@
 package com.kc345ws.blog.web.admin;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.kc345ws.blog.pojo.Blog;
 import com.kc345ws.blog.pojo.User;
 import com.kc345ws.blog.service.UserService;
+import com.kc345ws.blog.service.admin.AdminBlogService;
+import com.kc345ws.blog.service.admin.AdminTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 @RequestMapping("/admin")
-public class LoginController {
+public class AdminLoginController {
 
     @Autowired
     UserService userService;
+    @Autowired
+    private AdminBlogService adminBlogService;
+    @Autowired
+    private AdminTypeService adminTypeService;
     //跳转到登陆页面
     @RequestMapping//请求页面为get方法
     public String loginPage(){
@@ -27,13 +38,16 @@ public class LoginController {
             @RequestParam String username,//@RequestParam表名是必须传递的参数
             @RequestParam String password,
             HttpSession sessions,
-            RedirectAttributes redirectAttributes) {
+            RedirectAttributes redirectAttributes,
+            @RequestParam(defaultValue = "1" ,value = "pageNum") Integer pageNum,
+            Model model) {
         //用于重定向之后还能带参数跳转的的工具类
         final User user = userService.checkUser(username, password);
         if(user!=null){
             user.setPassword(null);//将密码设为空，为了安全性
             sessions.setAttribute("user",user);
-            return "admin/index";
+
+            return "redirect:/admin/index";
         }
         redirectAttributes.addFlashAttribute("message","用户名或密码错误");
         // 这种方法是隐藏了参数，链接地址上不直接暴露，但是能且只能在重定向的 “页面” 获取prama参数值。

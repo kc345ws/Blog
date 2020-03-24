@@ -27,12 +27,14 @@ public interface AdminTypeMapper {
     @Update("update t_type set name = #{name} where id = #{id}")
     void updateType(Long id, String name);
 
-    @Delete("delete * from t_type where id = #{id}")
+    @Delete("delete from t_type where id = #{id}")
     void deleteType(Long id);
 
-//    void file1();
-//
-//    void file2();
-//
-//    void file3();
+    //一起删除相关博客
+    @Update("alter table t_type drop id")
+    void file1();
+    @Update("alter table t_type add id int(3) first")
+    void file2();
+    @Update("alter table t_type modify column id int(3) not null auto_increment,add primary key(id)")
+    void file3();
 }

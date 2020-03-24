@@ -43,8 +43,8 @@ public class AdminTypeService {
     @Transactional
     public void deleteType(Long id){
         adminTypeMapper.deleteType(id);
-//        adminTypeDao.file1();
-//        adminTypeDao.file2();
-//        adminTypeDao.file3();
+        adminTypeMapper.file1();
+        adminTypeMapper.file2();
+        adminTypeMapper.file3();
     }
 }
